@@ -347,6 +347,7 @@ public interface CuratorFramework extends Closeable
     {
         return runSafe(() -> {
             synchronized(monitorHolder) {
+                //唤醒wait
                 monitorHolder.notifyAll();
             }
         });
